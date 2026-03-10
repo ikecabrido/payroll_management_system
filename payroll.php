@@ -121,7 +121,9 @@ $stats = $controller->getStats();
               alt="User Image" />
           </div>
           <div class="info">
-            <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">
+              Admin <?= htmlspecialchars($_SESSION['user']['full_name']) ?>
+            </a>
           </div>
         </div>
 
@@ -135,13 +137,13 @@ $stats = $controller->getStats();
             <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
             <li class="nav-item">
-              <a href="/payroll.php" class="nav-link active">
+              <a href="payroll.php" class="nav-link active">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>Dashboard</p>
               </a>
             </li>
             <li class="nav-item">
-              <a href="../payroll/views/salaryOverview.php" class="nav-link">
+              <a href="views/salaryOverview.php" class="nav-link">
                 <i class="nav-icon fas fa-money-check-alt"></i>
                 <p>Salary Overview</p>
               </a>

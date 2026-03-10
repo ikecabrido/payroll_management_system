@@ -132,7 +132,9 @@ $payslips = $payslipController->index($periodId, $employeeId);
                             alt="User Image" />
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">Alexander Pierce</a>
+                    <a href="#" class="d-block">
+              Admin <?= htmlspecialchars($_SESSION['user']['full_name']) ?>
+            </a>
                     </div>
                 </div>
 
