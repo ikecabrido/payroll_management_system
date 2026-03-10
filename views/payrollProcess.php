@@ -166,7 +166,7 @@ if (isset($_GET['error'])) {
                             alt="User Image" />
                     </div>
                     <div class="info">
-                    <a href="#" class="d-block">
+                    <a href="#" onclick="openGlobalModal('Profile Settings ','../user_profile/profile_form.php')" class="d-block">
                         Admin <?= htmlspecialchars($_SESSION['user']['full_name']) ?>
                     </a>
                     </div>

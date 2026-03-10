@@ -17,6 +17,15 @@ class User
         $user = $stmt->fetch();
         return $user ?: null;
     }
+    public function findById($id)
+    {
+        $sql = "SELECT * FROM users WHERE id = :id LIMIT 1";
+
+        $stmt = $this->db->prepare($sql);
+        $stmt->execute(['id' => $id]);
+
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
 
     public function create(string $username, string $password, string $fullName, string $role = "user"): bool
     {
@@ -27,6 +36,28 @@ class User
         );
 
         return $stmt->execute([$username, $hash, $fullName, $role]);
+    }
+    public function updateProfile($id, $full_name)
+    {
+        $sql = "UPDATE users SET full_name = :full_name WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            'full_name' => $full_name,
+            'id' => $id
+        ]);
+    }
+    public function updatePassword($id, $password)
+    {
+        $sql = "UPDATE users SET password = :password WHERE id = :id";
+
+        $stmt = $this->db->prepare($sql);
+
+        return $stmt->execute([
+            'password' => password_hash($password, PASSWORD_DEFAULT),
+            'id' => $id
+        ]);
     }
 
     public function updateTheme(int $userId, string $theme): bool

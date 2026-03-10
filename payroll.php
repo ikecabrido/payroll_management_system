@@ -121,7 +121,7 @@ $stats = $controller->getStats();
               alt="User Image" />
           </div>
           <div class="info">
-          <a href="#" class="d-block">
+          <a href="#" onclick="openGlobalModal('Profile Settings ','../user_profile/profile_form.php')" class="d-block">
               Admin <?= htmlspecialchars($_SESSION['user']['full_name']) ?>
             </a>
           </div>
@@ -466,7 +466,7 @@ $stats = $controller->getStats();
     </footer>
   </div>
   <!-- ./wrapper -->
-
+  <?php include "layout/global_modal.php"; ?>
   <!-- REQUIRED SCRIPTS -->
   <!-- jQuery -->
   <script src="assets/plugins/jquery/jquery.min.js"></script>
@@ -492,6 +492,8 @@ $stats = $controller->getStats();
   <!-- <script src="assets/dist/js/pages/dashboard2.js"></script> -->
   <script src="custom.js"></script>
   <script src="time.js"></script>
+  <script src="assets/dist/js/global_modal.js"></script>
+  <script src="assets/dist/js/profile.js"></script>
 
   <script>
     const chartData = <?= json_encode($stats['chart']) ?>;
